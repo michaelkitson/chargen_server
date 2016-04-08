@@ -18,7 +18,7 @@ defmodule ChargenServer do
   end
 
   @doc """
-  Start listeming for new TCP connections on the given port.
+  Start listening for new TCP connections on the given port.
   """
   def accept(port) do
     {:ok, socket} = :gen_tcp.listen(port, [:binary, packet: 0, active: false, reuseaddr: true])

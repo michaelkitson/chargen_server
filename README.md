@@ -1,20 +1,31 @@
 # ChargenServer
 
-**TODO: Add description**
+An elixir TCP server implementing the Character Generator Protocol.
 
-## Installation
+```
+$ sudo ./rel/chargen_server/bin/chargen_server start
+Using ./rel/chargen_server/releases/0.0.1/chargen_server.sh
+$
+```
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+```
+$ nc localhost 19 | head
+!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefgh
+"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghi
+#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
+$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijk
+%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijkl
+&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklm
+'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmn
+()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmno
+)*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnop
+*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopq
+$
+```
 
-  1. Add chargen_server to your list of dependencies in `mix.exs`:
-
-        def deps do
-          [{:chargen_server, "~> 0.0.1"}]
-        end
-
-  2. Ensure chargen_server is started before your application:
-
-        def application do
-          [applications: [:chargen_server]]
-        end
-
+```
+$ nc localhost 19 | pv > /dev/null
+943MiB 0:00:04 [ 231MiB/s] [                   <=>                                                                                                                                                                                                                               ]
+^C
+$
+```
